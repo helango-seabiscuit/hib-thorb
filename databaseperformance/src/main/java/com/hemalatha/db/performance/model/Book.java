@@ -5,6 +5,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@NamedNativeQuery(
+        name = "booknativequery",
+        query = "SELECT id,title from book where id=?",
+        resultClass = Book.class
+)
+@NamedQuery(
+      name = "booknamedquery",
+      query = "SELECT book from com.hemalatha.db.performance.model.Book book where id=:id"
+
+)
 public class Book {
 
     @Id
